@@ -14,6 +14,8 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **3. Perceptron - Intuition**
 
+**4. Advantages and Disadvantages of Perceptron**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -94,3 +96,26 @@ Perceptron - We are able to create linear classifier line.
 
 z=wixi+b is similar to Linear Regression equation, y=B0 + B1x1 + B2x2 +...+Bnxn
 
+**4. Advantages and Disadvantages of Perceptron**
+
+Perceptron Models are of Two Types: Single Layered Perceptron Model, Multi-Layered Perceptron Model
+
+**Multi Layered Perceptron Models also known as ANN or Multi-Layered Neural Network**
+
+**Problem with Single Layered Perceptron Model:**
+
+In Single Layered Perceptron Model, we have only Feed forward Neural Network and update the weights randomly if error is high (And the process continues). There is no mechanism to update the weights on some technique. (It is best only for Linearly Separable Usecases)
+
+**In Multi-Layered Neural Network, we have:**
+
+**(i) Forward Propagation**
+
+***(ii) Backward Propagation**
+
+**(iii) Loss Function**
+
+**(iv) Activation Function**
+
+**(v) Optimizers**
+
+**Multi-Layered Perceptron Models can be created into Deep Layered Neural Network, which can solve more complex problems**
