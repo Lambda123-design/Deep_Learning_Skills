@@ -33,3 +33,23 @@ We will learn about:
 **(vi) Transformers**
 
 **(vii) BERT**
+
+**Why Deep Learning Getting Popular? **
+
+In 2005, Facebook came into Picture (During 2005-06 also DL was into Picture, but it isn't that Popular). Later around 2011-12, most of the social media platforms comes into picture like Whatsapp, LinkedIn, and hence more data got generated. Companies got huge data, so they don't want to just store data, but they want to use it intelligently. Then due to huge data, "Big Data" cames into picture and thus Hadoop was introduced.
+
+By 2011-12, it became very popular.
+
+In 2011, Cloudera gave Hadoop VM's
+
+(i) Hardware Requirement: NVDIA came up with cost efficient GPU's
+
+(ii) Huge amount of Data --> Deep Learning Models perform very well when compared to traditional Machine Learning Models.
+
+(iii) Used in many industries like Medicine, Ecommerce, Retail, Marketing
+
+(iv) Opensource Frameworks leads to more community users and thus more researches came.
+
+**Tensorflow (Google)**
+
+**Pytorch (Facebook)**
