@@ -34,7 +34,7 @@ We will learn about:
 
 **(vii) BERT**
 
-**Why Deep Learning Getting Popular? **
+**Why Deep Learning Getting Popular?**
 
 In 2005, Facebook came into Picture (During 2005-06 also DL was into Picture, but it isn't that Popular). Later around 2011-12, most of the social media platforms comes into picture like Whatsapp, LinkedIn, and hence more data got generated. Companies got huge data, so they don't want to just store data, but they want to use it intelligently. Then due to huge data, "Big Data" cames into picture and thus Hadoop was introduced.
 
