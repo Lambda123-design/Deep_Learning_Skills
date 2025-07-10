@@ -16,6 +16,8 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **4. Advantages and Disadvantages of Perceptron**
 
+**5. ANN - Intuition and Learning**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -119,3 +121,31 @@ In Single Layered Perceptron Model, we have only Feed forward Neural Network and
 **(v) Optimizers**
 
 **Multi-Layered Perceptron Models can be created into Deep Layered Neural Network, which can solve more complex problems**
+
+**5. ANN - Intuition and Learning:**
+
+Also known as Multi-Layered Perceptron / Multi-Layered Neural Network (More than 1 Hidden Layer; We can have any number of Hidden Layers / any number of Neurons in the Hidden Layer)
+
+If 2 Layers, Two-Layered Neural Network
+
+In Hidden Layer, Two Steps Happen: Calculation of 'z', Applying Activation Function for 'z'
+
+**(i) Forward Propagation: We apply Step 1 and 2 in every hidden neuron (Say Random Weight Initialization, calculating z, activation(z) for that layer); Same way if goes through other hidden layers, and as it goes along weights will be added (Say W1-W3 weights in Input Layer, after output O1 at Hidden Layer 1, Weight W4 will be added to it, So it will be O1*W4+b2 (Very Important)**
+
+**Let's say finally by this, we came to the Output Layer; At the Output Layer, we calculate the Loss Function (Loss) with respect to the Actual and the Predicted Value. If it's not matching, error is there and our aim is to reduce the error**
+
+**How to Minimize the Error (Backward Propagation): Updating the weights is the only option; Weight Updatipon goes in Backwards; Let's say first W4 will get updated, then W1,W2,W3. This is known as Backward Propagation**
+
+**Sigmoid Function: 1/(1+e^-z)** 
+
+**Once Backward Propagation is done and all weights are updated, then we send the next record or the inputs**
+
+**Subsequently, the same way in the Hidden and the Output Layers, same process happen. Again loss will be calculated, with respect to that Output.**
+
+Based on Activation Function, Neuron should get activated, It becomes important in Activating/Deactivating (Deactivating - If I keep hot object in right hand, left hand neuron has no role)
+
+**Loss function vs Cost Function: Loss Function is with respect to single point (y-y^)2; Cost Function is with respect to whole data points (Summ i=n (y-y^)2**
+
+**In Backward Propagation, weight updation and Minimising Loss is done through "Optimizers"**
+
+
