@@ -18,6 +18,8 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **5. ANN - Intuition and Learning**
 
+**6. Backward Propagation and Weight Updation**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -148,4 +150,48 @@ Based on Activation Function, Neuron should get activated, It becomes important 
 
 **In Backward Propagation, weight updation and Minimising Loss is done through "Optimizers"**
 
+**6. Backward Propagation and Weight Updation:**
 
+**Number of neurons in the Input Layer will be equal to the number of Input Features. Any Number of Neurons can be in Hidden Layer and any number of hidden layers we can have**
+
+**b1,b2 will be Bias and we generally initiate the value of 1; When One Hidden Layer and One Output Layer --> Two Layered Neural Network**
+
+**Output Layer has one Neuron only because it is a simple classification problem (0 or 1). We can have 2 Neurons in the output layer if we have a Multi-Class Classification.**
+
+**Since 3 Neurons in the Input Layer and 2 Neurons in Hidden Layer, we have a Matrix Multiplication of 3x2 Matrix**
+
+**Loss Function: It is how we calculate Loss. We have different Loss functions for different types** 
+
+**Loss Functions for Regression: MSE, MAE, Huber Loss**
+
+**Loss Functions for Classification: Binary Cross Entropy, Categorical Cross Entropy**
+
+Simple Loss Function --> (y-y^)2
+
+**Our Main Aim is to Reduce the Loss Function**
+
+If More Error --> Update the weights by Backward Propagation (Subtracting the Weights and Updating it)
+
+**Weight Updation Formula:**
+
+Wnew = Wold - n (dL/dWold)
+
+The Graph that we plot is Gradient Descent, with respect to Weight and Loss Function.
+
+**To Minimse Loss, we use Optimizer**
+
+**In this case, it is known as Gradient Descent Optimizer**
+
+**If Right side of Slope upwards, Positive Slope; Right side downwards Negative Slope**
+
+**If Downwards - Negative Slope; Wnew > Wold**
+
+**If Upwards - Positive Slope; Wnew < Wold**
+
+**Reducing Weights to come to Global Minima, where loss is minimal**
+
+**n --> Learning Rate (Generally start with 0.001)**
+
+**When optimizer has to Stop:** When we reach the Global Minima, Slope will be 0 --> Wnew = Wold 
+
+So, we no need to update the weights and loss also comes down; As we go down in the chart itself, going to Global Minima, Loss Automatically reduces
