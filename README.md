@@ -24,6 +24,12 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **8. Vanishing Gradient and Problem with Sigmoid Activation Function**
 
+**9. Sigmoid Activation Function**
+
+**10. Tanh Activation Function**
+
+**11. ReLu Activation Function**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -229,3 +235,72 @@ Again in the end in substituting in W1new = W1old - n dL/dW1old, the n(dL/dW1old
 **In a very Deep NN, this will be very negligible values, say 0.00001. So we can't use Sigmoid Activation Function there. For smaller Activation function, we can maybe consider this**
 
 **Researchers came with other activation functions such as: Tanh, Relu, PreRelu, Swiss**
+
+**9. Sigmoid Activation Function:**
+
+Better with smaller NN; When NN goes deep, it didn't work; It was able to show even firing of Neuron
+
+**In ML, especially, Using Standard Scalar was able to convert Data Points to Zero-Centered, with Mean=0 and Standard Deviation = 1, which in similar in DL, was said to be efficient for updation of Weights**
+
+**Advantages of Sigmoid Activation Function:**
+
+(i) Smooth gradient, prevents jumps in output value
+
+(ii) Output value between 0 to 1, Normalizing the output of each neuron
+
+(iii) Clear Predictions, very close to 0 or 1
+
+**3 Major Disadvantages:**
+
+(i) Prone to Vanishing Gradient
+
+(ii) Function output not zero centered
+
+(iii) Power Operational is time consuming
+
+**In Linear Regression, Standardization is helpful to make zero-centered and update the weights accordingly**
+
+**10. Tanh Activation Function:** Hyperbolic Tangent Function; Function is Zero Centered
+
+**Formula: tanh(x) = e^z - e^-z / e^z + e^-z**
+
+**Values range between -1 to 1; Derivatives Range between 0 to 1**
+
+**Advantages:** Zero Centered --> Better Weight Updation
+
+**Disadvantages:**
+
+1. Vanishing Gradient Problem still exists for Deep Layered Neural Networks (No Problem till Small to Medium Layered Neural Network)
+
+2. Computational Time is more
+
+**11. ReLu Activation Function:**
+
+ReLu = Max(o,x)
+
+<=o --> Output = 0
+
+**Output of Derivative: 0 or 1** (whereas for Sigmoid 0 to 0.25; Tanh 0 to 1
+
+Since output is 0 or 1, it solves Vanishing Gradient Problem
+
+**If Derivative of ReLu Output is 1 --> Weight Updation will happen; If Zero --> Creates a Dead Neuron**
+
+**When Derivative of ReLu(z) becomes 0? For Negative Values it becomes 0** [For Positive Values of (z) --> It becomes 1]
+
+If 0 --> Dead Neuron; Other than that it solves the Vanishing Gradient Problem
+
+**Advantages:**
+
+(i) Solves Vanishing Gradient Problem
+
+(ii) Max(0,x) --> Calculation is Super-fast; ReLu also has linear relationship
+
+(iii) Much faster than Sigmoid/Tanh
+
+**Disadvantages:**
+
+(i) Dead Neuron
+
+(ii) ReLu Output 0 (or) x; Not a Zero-Centric Output
+
