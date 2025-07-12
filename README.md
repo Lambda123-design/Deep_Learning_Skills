@@ -20,6 +20,10 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **6. Backward Propagation and Weight Updation**
 
+**7. Chain Rule of Derivatives**
+
+**8. Vanishing Gradient and Problem with Sigmoid Activation Function**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -190,8 +194,38 @@ The Graph that we plot is Gradient Descent, with respect to Weight and Loss Func
 
 **Reducing Weights to come to Global Minima, where loss is minimal**
 
-**n --> Learning Rate (Generally start with 0.001)**
+**n --> Helps in Speed of Convergence; Learning Rate (Generally start with 0.001)**
 
 **When optimizer has to Stop:** When we reach the Global Minima, Slope will be 0 --> Wnew = Wold 
 
 So, we no need to update the weights and loss also comes down; As we go down in the chart itself, going to Global Minima, Loss Automatically reduces
+
+**7. Chain Rule of Derivatives**
+
+**dL/dW4new = dL/dO2 * dO2/dW4**
+
+**8. Vanishing Gradient and Problem with Sigmoid Activation Function**
+
+We know that W1new = W1old - n (dL/dW1old)
+
+dL/dw1old = dl/dO31 x dO31/dO21 x dO21/dO11 * dO11/dW1old --> Eq (i)
+
+We know that, O31 going is z
+
+Let's take, dO31/dO21 = d(sig(z)/d(z) x d(z) / dO21
+
+**Derivative of Sigmoid Activation function is, 0<= Sig(z) <=0.25 [By Mathematically Proved]**
+
+So, In eq (i) 
+
+dO31/dO21 x dO21/dO11 * dO11/dW1old (Each will be value between 0-0.25, Multiplied with each other)
+
+Again in the end in substituting in W1new = W1old - n dL/dW1old, the n(dL/dW1old) becomes very very small, where again n(Learning Rate starts from 0.01, smaller value)
+
+**This in turns means that W1new = W1old (Approximately), which means no weight updation happens to reach Global Minima**
+
+**We are stuck in Weight Updation. This is because of Sigmoid Activation Function, where dervative is between range 0-0.25**
+
+**In a very Deep NN, this will be very negligible values, say 0.00001. So we can't use Sigmoid Activation Function there. For smaller Activation function, we can maybe consider this**
+
+**Researchers came with other activation functions such as: Tanh, Relu, PreRelu, Swiss**
