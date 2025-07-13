@@ -48,6 +48,12 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **20. Gradient Descent Optimizer**
 
+**21. Stochastic Gradient Descent (SGD)**
+
+**22. Mini Batch with SGD**
+
+**23. SGD with Momentum**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -517,3 +523,91 @@ If Dataset has 1000 data points, we calculate y^ for all 1000 points, and then c
 (i) Huge Resources Needed: Say for 1M data points,huge RAM, GPU are needed. If I have 1M data points, we have to update that many of data points. To take up that many, store it, and then update, need more resources, including for the weight updation which needs GPU.
 
 **If No Huge resources, system will get hung in Local. We can do in Cloud like AWS, but which is again cost based; Therefore overall it is Resource Intensive**
+
+**21. Stochastic Gradient Descent (SGD):**
+
+**In Stochastic Gradient Descent, we send only one data point in every iteration. Same way, one epoch can have any number of iterations**
+
+**For Example, if 1000 datapoints, 1000 iterations will happen to complete one epoch. Iterations will go ahead until we reduce the loss value**
+
+**Similarly, we can go ahead with 100 epochs too, until we reduce the loss/cost value**
+
+**Advantages:**
+
+(i) Solves resource intensive issue
+
+**Disadvantages:**
+
+(i) Time complexity --> Say if 1M records, for 100 epochs, it will run for 100 epoch x 1M record for each epoch.
+
+(ii) Convergence takes more time.
+
+(iii) Noise gets introduced.
+
+**Earlier we saw that we took all data points, calculate y^, found out cost function, because of that Smoother convergence happened**
+
+**But since we take only 1 data point, noise will be introduced,i.e., the point will roam around in Gradient Descent curve and then only comes to Global Minima. Because of this too, time complexity increases and convergence also takes more time.**
+
+**22. Mini Batch with SGD:**
+
+Along with Epoch, Iteration, will also learn about Batch-Size.
+
+Let's say if 100k Data Points (100000), say batch size we say 1000 records, then number of records will be 100000/1000 = 100 Iterations
+
+**For each iteration in an epoch we will send data points of 1000 (Like that 100 Iterations complete for 1 Epoch, contributing for Batch Size of 1000)**
+
+Here, Let's say there is a 8GB RAM, which we used to send 1 record, it can handle 1000 records now. But handling 5000 records will be an issue, we may need 16GB RAM there
+
+**Again because of this Noise will be there**
+
+**In Mini-Batch SGD, Noise will be reduced because of batches, but still it will be there. We don't send 1 record, but we send in batches, where it takes a route to reach the Global Minima**
+
+**Advantages:**
+
+(i) Convergence speed will get increased
+
+(ii) Noise will be less when compared to SGD
+
+(iii) Efficient Resource utilization (e.g. RAM)
+
+**Disadvantages:**
+
+(i) Noise still exists - Efficient than SGD but still takes time to converge
+
+**We will try to smoothen the cuvrve; Smootheing helps to reach the Global Minima faster; For that we use SGD with Momentum**
+
+**23. SGD with Momentum:**
+
+**Always with Weight Updation similar theory, we have to update Bias too, with the Formula of bnew = bold - n(dL/dbold)**
+
+We know that weight updation formula is, Wnew = Wold - n(dL/dWold)
+
+Here with momentum, we will take it as,
+
+**Wt = Wt-1 - n (dL/dWt-1)** 
+
+**We are trying to update current time, with respect to previous time**
+
+**For Smoothening, we use Exponential Weighted Average**
+
+**E.g. Value at Vt1=a1, then at Vt2 we calculate as**
+
+**Vt2 = B x Vt1 + (1-B) x a2**
+
+**Generally, we give as, Vt2 = 0.95 x Vt1 + 0.05 x a2**
+
+**0.95, i.e. we give more importance to the previous value to control the smoothening and current point (say 0.05) which has lesser control over the smoothening. Same way third point, has similar second points control more**
+
+**Vt3 = B x Vt2 + (1-B) x Vt3**
+
+**We do exponential weighted average to smoothen the Curve**
+
+**B (beta) Smoothening Parameter which controls smoothening; General Value 0 to 1**
+
+**Advantages:**
+
+(i) Reduces the Noise
+
+(ii) Quicker Convergence
+
+**Usually used in Time Series Problems with ARIMA, SARIMAX**
