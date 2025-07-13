@@ -42,6 +42,12 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **17. Regression Cost Function**
 
+**18. Which Loss Functions when to use**
+
+**19. Types of Optimizers**
+
+**20. Gradient Descent Optimizer**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -449,3 +455,65 @@ Cost Function = 1/n (y-yi)^2, if |y-y^| <= δ
 **d) Root Mean Squared Error (RMSE):**
 
 Cost Function = √Sum i = 1 to n (y-y^)2 / N
+
+**18. Which Loss Functions when to use?**
+
+Hidden Layer --> Output Layer (Activation Function) --> Problem Statement ---> Loss Function
+
+(i) ReLu or its variants - Sigmoid - Binary Classification - Binary Cross Entropy
+
+(ii) ReLu or its variants - Softmax - Multi-Class Classification - Categorical or Sparse Categorical Cross Entropy
+
+(iii) ReLu or its variants - Linear - Regression - MSE, MAE, Huber Loss, RMSE
+
+**19. Types of Optimizers:**
+
+(i) Gradient Descent
+
+(ii) Stochastic Gradient Descent (SGD)
+
+(iii) Mini Batch SGD
+
+(iv) SGD with Momentum
+
+(v) Adagrad and RMSPROP
+
+(vi) Adam Optimizers
+
+**20. Gradient Descent Optimizer:**
+
+We use optimizers to reduce loss, with the help of Backward Propagation (Main Role of Optimizers: To update Weights)
+
+**General Weight Updation Formula: Wnew = Wold - n(dL/dWold)**
+
+**Our Main Goal in Gradient Descent: To reach Global Minima; When Global Minima is reached, Wnew = Wold and then no weight updation happens**
+
+**MSE: Loss Function: (y-y^)2; Cost Function: 1/n Sum i=1 to n (y-y^)2**
+
+**Two Important Concepts: Epoch, Iteration**
+
+**Gradient Descent generally takes all data points at once, calculate loss and updates the weights back in Backward Propagation; This will happen in Multiple Epochs, as required according to the Problem Statement**
+
+If Dataset has 1000 data points, we calculate y^ for all 1000 points, and then calculate cost function, and then weights will get updated accordingly for all points
+
+**Epoch: 1 Forward Propagation with all data points + 1 Backward Propagation with weights getting updated**
+
+**We do multiple epochs with the same steps, until the cost function gets reduced. As we do epochs, loss gets reduced**
+
+**In this case, 1 Epoch = 1 Iteration**
+
+**Iteration: If suppose I have 1000 data points, and I split it, and I send it as 1 iteration with 100 data points (As 10 iterations for 1000 points/10 Iterations, so 100 points for each iteraion)**
+
+**1 Epoch can have any number of iterations and based on number of iterations we will have data  points**
+
+**But in Gradient Descent, 1 Epoch = 1 Iteration, because it takes all data points at all once**
+
+**Advantages:**
+
+(i) Convergence will happen
+
+**Disadvantages:**
+
+(i) Huge Resources Needed: Say for 1M data points,huge RAM, GPU are needed. If I have 1M data points, we have to update that many of data points. To take up that many, store it, and then update, need more resources, including for the weight updation which needs GPU.
+
+**If No Huge resources, system will get hung in Local. We can do in Cloud like AWS, but which is again cost based; Therefore overall it is Resource Intensive**
