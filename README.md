@@ -54,6 +54,8 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **23. SGD with Momentum**
 
+**24. AdaGrad**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -611,3 +613,43 @@ Here with momentum, we will take it as,
 (ii) Quicker Convergence
 
 **Usually used in Time Series Problems with ARIMA, SARIMAX**
+
+**24. AdaGrad:**
+
+AdGrad stands for Adaptive Gradient Descent
+
+We know that, **Wt = Wt-1 - n (dL/dWt-1)** 
+
+So far, we kept learning rate as fixed. It doesn't have changed now
+
+**What if we make learning rate dynamic rather than fixed?**
+
+It is like, if we change like, initial steps at the convergence should take bigger steps, whereas as it comes near to Global Minima, it should take smaller steps
+
+**That is as convergence happens, learning rate should change**
+
+**Initially, we give higher values, so that faster convergence happens and as it comes near to Global Minima, it slows down**
+
+**Formula: Wt = Wt-1 - n! (dL/dWt-1)**
+
+**n! --> (Eeta Dash) --> n/(√ α + E)**
+
+**E - Epsilon, we add a small value, because, it Alpha comes to zero, it happens to be in a situation where it comes to divided by 0, We don't want it to happen**
+
+αt = Sum i=1 to t(dL/dWt)^2
+
+**As Backward Propagation happens, as we go with first layer to second layer, and in-depth layers, Aplha Value Increases**
+
+**As Alpha Value increases, n! value decreases**
+
+This is what new dynamic Learning Rate reduces, as we go near to Global Minima
+
+E.g. for t=1, n!=0.01, t=2, n!=0.005, t=3, n!=0.003
+
+**Advantage:**
+
+(i) Dynamic Learning Rate
+
+**Disadvantages:**
+
+(i) n! becomes very smaller and finally wt=wt-1, i.e., No wight updation happens
