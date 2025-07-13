@@ -40,6 +40,8 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **16. Loss Function vs Cost Function**
 
+**17. Regression Cost Function**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -394,4 +396,56 @@ Loss Function: We pass each data point, we calculate y^, calculate loss and do b
 
 Cost Function: We update all data points at once, calculate (y-y^)2 for every points, do sum of all errors, find out mean and weight updation will be done at only once
 
+**17. Regression Cost Function:**
 
+ANN can be used for both Regression and Classification (Check Notebooks / Videos for Clear Formulae)
+
+**Regression Cost Functions: Mean Squared Error (MSE), Mean Absolute Error (MAE), Huber Loss, Root Mean Squared Error (RMSE)**
+
+**a) Mean Squared Error (MSE):**
+
+**Loss Function: (y-yi)^2**
+
+**Cost Function: 1/n (Sum i=1 to n (y-yi)^2**
+
+**Advantages:**
+
+(i) MSE is differentiable at every point
+
+(ii) It has only one Global Minima
+
+(iii) Convergence is faster
+
+**Disadvantages:**
+
+(i) Not robust to Outliers - It penalizes the outlier, means the best fit line gets moves towards the outlier direction
+
+**b) Mean Absolute Error (MAE):**
+
+**Loss Function: |y-y^|**
+
+**Cost Function: 1/n Sum i=1 to n |y-y^|**
+
+**Advantages:**
+
+(i) Robust to Outliers (Best fit line will change, but not that much when compared to MSE)
+
+**Disadvantages:**
+
+(i) Convergence takes time (There is concepts of Sub-Gradients, i.e. we take separate sub gradients and calculate minima)
+
+**If Outliers, use MAE; If no Outliers, use MSE (If we remove Outliers and use MSE, we may loose some data points**
+
+**c) Huber Loss:**
+
+Combination of MSE and MAE
+
+Cost Function = 1/n (y-yi)^2, if |y-y^| <= δ
+
+δ |y-y^| - 1/2 δ^2, Otherwise
+
+δ - Hyperparameter - A threshold which we can think of
+
+**d) Root Mean Squared Error (RMSE):**
+
+Cost Function = √Sum i = 1 to n (y-y^)2 / N
