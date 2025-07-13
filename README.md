@@ -30,6 +30,16 @@ Deep Learning - Subset of Machine Learning; Based on Multi-Layered Neural Networ
 
 **11. ReLu Activation Function**
 
+**12. LeakyReLu and Parametric ReLu**
+
+**13. Exponential Linear Unit (ELU)**
+
+**14. Softmax Activation Function**
+
+**15. Which Activation Function when to Apply?**
+
+**16. Loss Function vs Cost Function**
+
 1. **Types:**
 
 **1. Artificial Neural Network (ANN):** Solves both Classification and Regression
@@ -303,4 +313,85 @@ If 0 --> Dead Neuron; Other than that it solves the Vanishing Gradient Problem
 (i) Dead Neuron
 
 (ii) ReLu Output 0 (or) x; Not a Zero-Centric Output
+
+**12. Leaky ReLu and Parametric ReLu:**
+
+**ReLu stands for Rectified Linear Unit**
+
+ReLu had Dead Neuron Problem, which leads to Dead ReLu Problem
+
+Leaky ReLu and Parametric ReLu solves this problem
+
+**Leaky ReLu: f(x) = max(0.01x,x) --> With respect to Forward Propagation**
+
+**Derivative: 0.01 to 1 (Backward Propagation)**
+
+**Parametric ReLu: max(αx,x)**
+
+If 0.01 --> Leaky ReLu; If Alpha --> Parametric ReLu
+
+**With respect to LeakyReLu, we don't get derivative as zero**
+
+**Advantages:**
+
+(i) LeakyReLu has all advantages of ReLu
+
+(ii) It removes dead ReLu Problem
+
+**Disadvantage:**
+
+(i) Not Zero Centered
+
+**13. Exponential Linear Unit:**
+
+Used to solve ReLu problems
+
+**f(x) = x, if x>0, α(e^x - 1), otherwise** [Forward Propagation]
+
+If d(f(x) / dx = > 0, then 1 [Backward Propagation]
+
+**Advantages:**
+
+(i) No dead ReLu issues
+
+(ii) Zero Centered
+
+**Disadvantages:**
+
+(i) Slightly more computationally intense
+
+**14. Softmax Activation Function:**
+
+**Softmax Activation function used in Multi-Class Classification problem**
+
+Example for a Image Classification: In the output layerm we have some outputs of 4 Neurons with Values -1,0,3,5
+
+**After that we use Softmax Activation Function to predict Multi-Class Classification**
+
+**Softmax = e^yi / (Sum k=0,n e^yk)**
+
+We calculate this for each output
+
+**Finally, we divide each output by sum of all, to find which will be the final predicted output**
+
+**Eg. after applying Softmax Formula, Cat - 0.0003, Dog - 0.0024, Monkey - 0.0183, Horse - 0.1353 **
+
+**Final Prediction = Horse Value (Since Horse has higher value  here) / Sum of all from Cat to Horse = 86%**
+
+**So, prediction will be Horse here**
+
+**15. Which Activation Function when to apply?**
+
+If Hidden Layer has Sigmoid, it leads to Vanishing Gradeint problem
+
+**Hidden Layers --> Use ReLu or its variants such as Leaky ReLU, PreReLu, ELU**
+
+**Output Layers --> Sigmoid (For Binary Classification); Softmax (For Multi-Class Classification)**
+
+**16. Loss Function vs Cost Function:**
+
+Loss Function: We pass each data point, we calculate y^, calculate loss and do backward propagation for every record to update weights (MSE= (y-y^)2
+
+Cost Function: We update all data points at once, calculate (y-y^)2 for every points, do sum of all errors, find out mean and weight updation will be done at only once
+
 
